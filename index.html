@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clothing App Project</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <div class="appArea">
+        <h1>Welcome to your Fashion Report</h1>
+
+        <div class="view-area">
+          <div class="left-panel">
+            <div class="day-toggle">
+              <select id="daySelector">
+                <option value="0">Sunday</option>
+                <option value="1">Monday</option>
+                <option value="2">Tuesday</option>
+                <option value="3">Wednesday</option>
+                <option value="4">Thursday</option>
+                <option value="5">Friday</option>
+                <option value="6">Saturday</option>
+              </select>
+              <button id="dayButton" onClick="dayClick()">Set Day</button>
+              <button id="refresh" class="refresh-button">Refresh</button>
+            </div>
+          </div>
+
+          <div class="right-panel">
+            Hello
+            <div class="outfit">
+              Your Full Outfit
+              <div class="outfit-top">@@top</div>
+              <div class="outfit-bottom">$$bottom</div>
+              <div class="outfit-shoes">%%shoes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/app.js"></script>
+  </body>
+</html>
