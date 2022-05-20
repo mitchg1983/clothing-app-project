@@ -134,59 +134,55 @@ const clothing = [
       "https://slimages.macysassets.com/is/image/MCY/products/3/optimized/11786133_fpx.tif?$browse$&wid=376&fmt=webp",
   },
 ];
-console.log("Your clothing is...", clothing);
+// console.log("Your clothing is...", clothing);
 
 //Tracked Variables
-let day = 0;
-let dayName = "Sunday";
-
-//Day Tracker
-switch (day) {
-  case 0:
-    dayName = "Sunday";
-    break;
-  case 1:
-    dayName = "Monday";
-    break;
-  case 2:
-    dayName = "Tuesday";
-    break;
-  case 3:
-    dayName = "Wednesday";
-    break;
-  case 4:
-    dayName = "Thursday";
-    break;
-  case 5:
-    dayName = "Friday";
-    break;
-  case 6:
-    dayName = "Saturday";
-    break;
-  default:
-    dayName = "FLURSDAY??";
-}
-console.log("The current day,", day, "is a...", dayName);
+let day = "5";
+let dayName;
 
 //Button Functions
 function dayClick() {
-  console.log("Starting dayClick...");
+  let selectedDay = document.querySelector("#daySelector");
+  // console.log("selected user value...", selectedDay.value);
 
-  const selectedDay = document.querySelector("#daySelector").value;
-  console.log("The currently selected day is...", selectedDay);
+  day = selectedDay.value;
 
-  console.log();
-  return;
+  switch (day) {
+    case "0":
+      dayName = "Sunday";
+      break;
+    case "1":
+      dayName = "Monday";
+      break;
+    case "2":
+      dayName = "Tuesday";
+      break;
+    case "3":
+      dayName = "Wednesday";
+      break;
+    case "4":
+      dayName = "Thursday";
+      break;
+    case "5":
+      dayName = "Friday";
+      break;
+    case "6":
+      dayName = "Saturday";
+      break;
+    default:
+      dayName = "FLURSDAY??";
+  }
+
+  // console.log("POST day,", day);
+  // console.log("POST dayname", dayName);
+  let displayDay = document.querySelector("#currentDayOutput");
+  displayDay.innerText = "The current day is..." + dayName;
 }
 
 const getClothesByType = (userType) => {
-  console.log("Starting getClothes, looking for...", userType);
+  //   console.log("Starting getClothes, looking for...", userType);
 
   const foundTypes = clothing.reduce((acc, current) => {
-    // const { type } = current;
-    // console.log(type);
-    // console.log(current);
-
     if (current.type === userType) {
       acc.push(current);
     }
@@ -197,4 +193,15 @@ const getClothesByType = (userType) => {
   return foundTypes;
 };
 
-console.log(getClothesByType("bot"));
+console.log(getClothesByType("shoes"));
+
+const getOutfit = () => {
+  console.log("Starting getOutfit...");
+};
+
+// console.log(dayName);
+
+// const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+// const d = new Date();
+// let day = weekday[d.getDay()]
