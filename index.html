@@ -26,7 +26,13 @@
               </select>
               <button id="dayButton" onClick="dayClick()">Set Day</button>
               <p id="currentDayOutput"></p>
-              <button id="refresh" class="refresh-button">Refresh</button>
+              <button
+                id="refresh"
+                class="refresh-button"
+                onClick="refreshClick()"
+              >
+                Refresh
+              </button>
             </div>
           </div>
 
@@ -34,9 +40,9 @@
             Hello
             <div class="outfit">
               Your Full Outfit
-              <div class="outfit-top">@@top</div>
-              <div class="outfit-bottom">$$bottom</div>
-              <div class="outfit-shoes">%%shoes</div>
+              <div class="outfit-top" id="outfitTop">@@top</div>
+              <div class="outfit-bottom" id="outfitBottom">$$bottom</div>
+              <div class="outfit-shoes" id="outfitShoes">%%shoes</div>
             </div>
           </div>
         </div>

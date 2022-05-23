@@ -134,7 +134,6 @@ const clothing = [
       "https://slimages.macysassets.com/is/image/MCY/products/3/optimized/11786133_fpx.tif?$browse$&wid=376&fmt=webp",
   },
 ];
-// console.log("Your clothing is...", clothing);
 
 //Tracked Variables
 let day = "5";
@@ -143,7 +142,6 @@ let dayName;
 //Button Functions
 function dayClick() {
   let selectedDay = document.querySelector("#daySelector");
-  // console.log("selected user value...", selectedDay.value);
 
   day = selectedDay.value;
 
@@ -173,35 +171,62 @@ function dayClick() {
       dayName = "FLURSDAY??";
   }
 
-  // console.log("POST day,", day);
-  // console.log("POST dayname", dayName);
   let displayDay = document.querySelector("#currentDayOutput");
   displayDay.innerText = "The current day is..." + dayName;
 }
 
+function refreshClick() {
+  let outfitTop = document.querySelector("#outfitTop");
+  let outfitBottom = document.querySelector("#outfitBottom");
+  let outfitShoes = document.querySelector("#outfitShoes");
+  let myTops = getClothesByType("top");
+  let myBottoms = getClothesByType("bottom");
+  let myShoes = getClothesByType("shoes");
+
+  function getRandomItem(type, list) {
+    const filteredClothes = list.filter((e) => {
+      return e.dressCode === type;
+    });
+    const totalClothes = filteredClothes.length;
+    const numRoll = Math.floor(Math.random() * totalClothes);
+    console.log("Returning this clothing item...", filteredClothes[numRoll]);
+    return filteredClothes[numRoll];
+  }
+  switch (day) {
+    case "0":
+      const casualTop = getRandomItem("casual", myTops);
+      outfitTop.innerHTML = `<img src="${casualTop.imageUrl}">`;
+      const casualBottom = getRandomItem("casual", myBottoms);
+      outfitBottom.innerHTML = `<img src="${casualBottom.imageUrl}">`;
+      const casualShoes = getRandomItem("casual", myShoes);
+      outfitShoes.innerHTML = `<img src="${casualShoes.imageUrl}">`;
+      break;
+    case "6":
+      const sportTop = getRandomItem("sport", myTops);
+      outfitTop.innerHTML = `<img src="${sportTop.imageUrl}">`;
+      const sportBottom = getRandomItem("sport", myBottoms);
+      outfitBottom.innerHTML = `<img src="${sportBottom.imageUrl}">`;
+      const sportShoes = getRandomItem("sport", myShoes);
+      outfitShoes.innerHTML = `<img src="${sportShoes.imageUrl}">`;
+      break;
+    default:
+      const formalTop = getRandomItem("formal", myTops);
+      outfitTop.innerHTML = `<img src="${formalTop.imageUrl}">`;
+      const formalBottom = getRandomItem("formal", myBottoms);
+      outfitBottom.innerHTML = `<img src="${formalBottom.imageUrl}">`;
+      const formalShoes = getRandomItem("formal", myShoes);
+      outfitShoes.innerHTML = `<img src="${formalShoes.imageUrl}">`;
+      break;
+  }
+}
+
 const getClothesByType = (userType) => {
   //   console.log("Starting getClothes, looking for...", userType);
-
   const foundTypes = clothing.reduce((acc, current) => {
     if (current.type === userType) {
       acc.push(current);
     }
-
     return acc;
   }, []);
-
   return foundTypes;
 };
-
-console.log(getClothesByType("shoes"));
-
-const getOutfit = () => {
-  console.log("Starting getOutfit...");
-};
-
-// console.log(dayName);
-
-// const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-
-// const d = new Date();
-// let day = weekday[d.getDay()]
